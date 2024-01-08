@@ -3,6 +3,10 @@ package io.diffblue.corebanking.compliance.rules;
 import io.diffblue.corebanking.account.Account;
 
 public class ComplianceRuleTaxPaid extends ComplianceRule {
+    public ComplianceRuleTaxPaid()
+    {
+    }
+
 
     private final int LIMIT_PERSONAL_ALLOWANCE = 12_570;
     private final int LIMIT_BASIC_RATE = 50_270;
