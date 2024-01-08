@@ -7,7 +7,6 @@ public class ComplianceRuleTaxPaid extends ComplianceRule {
     {
     }
 
-
     private final static int LIMIT_PERSONAL_ALLOWANCE = 12_570;
     private final static int LIMIT_BASIC_RATE = 50_270;
     private final static int LIMIT_HIGHER_RATE = 125_140;
