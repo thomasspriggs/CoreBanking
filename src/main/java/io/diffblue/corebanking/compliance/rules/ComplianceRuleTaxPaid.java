@@ -16,26 +16,6 @@ public class ComplianceRuleTaxPaid extends ComplianceRule {
         // TODO implement!
     }
 
-    public static class TaxDue {
-        int amount;
-        String description;
-
-        TaxDue(int amount, String description)
-        {
-            this.amount = amount;
-            this.description = description;
-        }
-
-        int getAmount() {
-            return amount;
-        }
-
-        String getDescription() {
-            return description;
-        }
-    }
-
-
     public TaxDue calculateTax(int incomeEarnedThisYear)
     {
         if(incomeEarnedThisYear < LIMIT_PERSONAL_ALLOWANCE)
