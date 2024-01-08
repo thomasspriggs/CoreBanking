@@ -1,7 +1,5 @@
 package io.diffblue.corebanking;
 
-import io.diffblue.corebanking.compliance.rules.ComplianceRuleTaxPaid;
-
 public class WrongTestsReproducer {
 
     public static class TaxDue {
