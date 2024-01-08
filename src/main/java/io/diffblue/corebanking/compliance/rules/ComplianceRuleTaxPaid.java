@@ -16,7 +16,7 @@ public class ComplianceRuleTaxPaid extends ComplianceRule {
         // TODO implement!
     }
 
-    public class TaxDue {
+    public static class TaxDue {
         int amount;
         String description;
 
