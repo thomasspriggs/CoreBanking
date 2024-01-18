@@ -37,12 +37,12 @@ public class ComplianceRuleTaxPaid extends ComplianceRule {
         return new TaxDue(additionalRateTax + basicRateTax + higher_rate_tax, "Additional, higher and basic rate tax is due.");
     }
 
-    public TaxStatus checkTax(int incomeEarnedThisYear, int taxPaid)
+    public TaxStatus checkTax(int incomeEarnedThisYearPounds, int taxPaidPence)
     {
-        TaxDue taxDue = calculateTax(incomeEarnedThisYear);
+        TaxDue taxDue = calculateTax(incomeEarnedThisYearPounds);
         if(taxDue.amount == 0)
         {
-            if(taxPaid == 0)
+            if(taxPaidPence == 0)
             {
                 return new TaxStatus("Person is correctly untaxed.", taxDue, 0);
             }
@@ -51,18 +51,18 @@ public class ComplianceRuleTaxPaid extends ComplianceRule {
                 return new TaxStatus("Person has paid tax when none is payable!", taxDue, 0);
             }
         }
-        if(taxPaid == 0)
+        if(taxPaidPence == 0)
         {
             return new TaxStatus("Person needs to pay their tax!", taxDue, taxDue.getAmount());
         }
-        int balance = taxDue.getAmount() - taxPaid;
+        int balance = taxDue.getAmount() - (taxPaidPence / 100);
         if(balance > 0)
         {
             return new TaxStatus("Tax has been underpaid.", taxDue, balance);
         }
         if(balance < 0)
         {
-            return new TaxStatus("Tax has been overpaid.", taxDue, taxDue.getAmount() - taxPaid);
+            return new TaxStatus("Tax has been overpaid.", taxDue, taxDue.getAmount() - taxPaidPence);
         }
         assert(balance == 0);
         return new TaxStatus("Tax has been correctly paid.", taxDue, balance);
