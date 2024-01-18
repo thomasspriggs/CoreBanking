@@ -39,6 +39,8 @@ public class ComplianceRuleTaxPaid extends ComplianceRule {
 
     public TaxStatus checkTax(int incomeEarnedThisYearPounds, int taxPaidPence)
     {
+        if(taxPaidPence < 0) // Reject negative taxpayment!
+            return null;
         TaxDue taxDue = calculateTax(incomeEarnedThisYearPounds);
         if(taxDue.amount == 0)
         {
