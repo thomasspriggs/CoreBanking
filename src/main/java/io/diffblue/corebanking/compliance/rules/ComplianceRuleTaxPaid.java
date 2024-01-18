@@ -55,7 +55,7 @@ public class ComplianceRuleTaxPaid extends ComplianceRule {
         {
             return new TaxStatus("Person needs to pay their tax!", taxDue, taxDue.getAmount());
         }
-        int balance = taxDue.getAmount() - (taxPaidPence / 100);
+        int balance = ((taxDue.getAmount() * 100) - taxPaidPence) / 100;
         if(balance > 0)
         {
             return new TaxStatus("Tax has been underpaid.", taxDue, balance);
@@ -65,6 +65,6 @@ public class ComplianceRuleTaxPaid extends ComplianceRule {
             return new TaxStatus("Tax has been overpaid.", taxDue, taxDue.getAmount() - taxPaidPence);
         }
         assert(balance == 0);
-        return new TaxStatus("Tax has been correctly paid.", taxDue, balance);
+        return new TaxStatus("About the right amount of tax has been paid.", taxDue, balance);
     }
 }
