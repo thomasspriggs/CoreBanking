@@ -32,6 +32,13 @@
       <scope>test</scope>
       <classifier>runtime</classifier>
     </dependency>
+    <!-- Only for JBMC -->
+    <dependency>
+      <groupId>org.cprover.util</groupId>
+      <artifactId>cprover-api</artifactId>
+      <version>1.0.0</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
